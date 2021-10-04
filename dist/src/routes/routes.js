@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express = require("express");
+const newsController_1 = require("../controller/newsController");
+const routes = express.Router();
+const { get, getById, create, update, remove } = newsController_1.default;
+routes.get('/', (req, res) => { res.send({ mensage: "hello " }); });
+routes.get('/api/v1/news', get);
+routes.get('/api/v1/news/:id', getById);
+routes.post('/api/v1/news', create);
+routes.put('/api/v1/news', update);
+routes.delete('/api/v1/news', remove);
+exports.default = routes;
